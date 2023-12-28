@@ -37,8 +37,17 @@ arrayToDiv(movies)
 
 
 const sortFunc = () => {
+    let cache;
+    movies.forEach(array => {
+        let cache = array.shift()
+        return cache
+    })
+    console.log(cache);
     movies.sort()
     grid.innerHTML = ''
+    movies.forEach(array => {
+        array.unshift(cache)
+    })
     arrayToDiv(movies)
 }
 
