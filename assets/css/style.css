@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'pop';
+    src: url('../fonts/Poppins/Poppins-Regular.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'pop';
+}
+
+body {
+    background-color: rgb(31, 31, 31);
+    color: white;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.gridItem {
+    height: 100px;
+    width: 100px;
+    background-color: white;
+}
