@@ -35,8 +35,15 @@ header {
     gap: 1rem;
 }
 
-.gridItem {
-    height: 100px;
-    width: 100px;
-    background-color: white;
+.grid div {
+    background-color: rgb(89, 89, 1);
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
 }
