@@ -34,6 +34,20 @@ const arrayToDiv = (array) => {
         })
     });
 }
+
+// test
+
+const genreToBr = (array) => {
+    array.forEach(array => {
+        array[4].forEach(element => {
+            return element.toString().replaceAll(',', '<br>')
+        })
+        return array[4].toString().replaceAll(',', '<br>')
+    })
+}
+
+genreToBr(movies)
+
 arrayToDiv(movies)
 
 
@@ -63,7 +77,7 @@ sortReverse.addEventListener('click', reverseSortFunc)
 sortRating.addEventListener('click', sortRatingFunc)
 
 const searchFunc = () => {
-    let match = movies.filter((movie) => movie[0].toLowerCase().includes(input.value.toLowerCase()))
+    let match = movies.filter((title) => title[0].toLowerCase().includes(input.value.toLowerCase()))
     if (match.length > 0) {
         grid.innerHTML = ''
         arrayToDiv(match)
