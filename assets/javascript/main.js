@@ -1,4 +1,5 @@
 const search = document.querySelector('#searchButton')
+const input = document.querySelector('#search')
 const sort = document.querySelector('#sortYear')
 const sortReverse = document.querySelector('#sortYearReverse')
 const sortRating = document.querySelector('#sortRating')
@@ -60,4 +61,18 @@ const sortRatingFunc = () => {
 sort.addEventListener('click', sortFunc)
 sortReverse.addEventListener('click', reverseSortFunc)
 sortRating.addEventListener('click', sortRatingFunc)
+
+const searchFunc = () => {
+    let match = movies.filter((movie) => movie[0].toLowerCase().includes(input.value.toLowerCase()))
+    if (match.length > 0) {
+        grid.innerHTML = ''
+        arrayToDiv(match)
+    } else {
+        grid.innerHTML = 'no matches'
+    }
+}
+
+
+search.addEventListener('click', searchFunc)
+
 
