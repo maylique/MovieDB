@@ -37,20 +37,27 @@ arrayToDiv(movies)
 
 
 const sortFunc = () => {
-    let cache;
-    movies.forEach(array => {
-        let cache = array.shift()
-        return cache
-    })
-    console.log(cache);
-    movies.sort()
+    movies.sort((a, b) => a[1] - b[1])
     grid.innerHTML = ''
-    movies.forEach(array => {
-        array.unshift(cache)
-    })
+    arrayToDiv(movies)
+}
+
+const reverseSortFunc = () => {
+    movies.sort((a, b) => a[1] - b[1])
+    movies.reverse((a, b) => a[1] - b[1])
+    grid.innerHTML = ''
+    arrayToDiv(movies)
+}
+
+const sortRatingFunc = () => {
+    movies.sort((a, b) => a[5] - b[5])
+    movies.reverse((a, b) => a[5] - b[5])
+    grid.innerHTML = ''
     arrayToDiv(movies)
 }
 
 
 sort.addEventListener('click', sortFunc)
+sortReverse.addEventListener('click', reverseSortFunc)
+sortRating.addEventListener('click', sortRatingFunc)
 
