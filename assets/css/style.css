@@ -67,6 +67,10 @@ header {
     margin: 1rem;
 }
 
+.grid p {
+    text-align: center;
+}
+
 .grid div {
     background-color: rgb(3, 9, 49);
     color: white;

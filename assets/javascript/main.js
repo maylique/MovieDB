@@ -29,24 +29,13 @@ const arrayToDiv = (array) => {
             year.textContent = array[1]
             director.textContent = array[2]
             length.textContent = array[3]
-            genre.textContent = array[4]
+            genre.innerHTML = array[4].toString().replaceAll(',', '<br>')
             rating.textContent = array[5]
         })
     });
 }
 
-// test
 
-const genreToBr = (array) => {
-    array.forEach(array => {
-        array[4].forEach(element => {
-            return element.toString().replaceAll(',', '<br>')
-        })
-        return array[4].toString().replaceAll(',', '<br>')
-    })
-}
-
-genreToBr(movies)
 
 arrayToDiv(movies)
 
@@ -77,12 +66,24 @@ sortReverse.addEventListener('click', reverseSortFunc)
 sortRating.addEventListener('click', sortRatingFunc)
 
 const searchFunc = () => {
-    let match = movies.filter((title) => title[0].toLowerCase().includes(input.value.toLowerCase()))
-    if (match.length > 0) {
+    let matchTitle = movies.filter(title => title[0].toLowerCase().includes(input.value.toLowerCase()))
+    let matchYear = movies.filter(year => year[1].toLowerCase().includes(input.value.toLowerCase()))
+    let matchDirector = movies.filter(director => director[2].toLowerCase().includes(input.value.toLowerCase()))
+    let matchGenre = movies.filter(genre => genre[4].toString().toLowerCase().includes(input.value.toLowerCase()))
+    if (matchTitle.length > 0) {
         grid.innerHTML = ''
-        arrayToDiv(match)
-    } else {
-        grid.innerHTML = 'no matches'
+        arrayToDiv(matchTitle)
+    } else if (matchYear.length > 0) {
+        grid.innerHTML = ''
+        arrayToDiv(matchYear)
+    } else if (matchDirector.length > 0) {
+        grid.innerHTML = ''
+        arrayToDiv(matchDirector)
+    } else if (matchGenre.length > 0) {
+        grid.innerHTML = ''
+        arrayToDiv(matchGenre)
+    }else {
+        grid.innerHTML = '<p><p></p><p>no matches</p><p></p><p>'
     }
 }
 
